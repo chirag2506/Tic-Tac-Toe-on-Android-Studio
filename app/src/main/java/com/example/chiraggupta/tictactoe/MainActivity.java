@@ -1,5 +1,6 @@
 package com.example.chiraggupta.tictactoe;
 
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -211,5 +212,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         player2Points = 0;
         updatePoints();
         resetBoard();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("player1Points", player1Points);
+        outState.putInt("player2Points", player2Points);
+        outState.putBoolean("turnOfCross", turnOfCross);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        player1Points = savedInstanceState.getInt("player1Points");
+        player2Points = savedInstanceState.getInt("player2Points");
+        turnOfCross = savedInstanceState.getBoolean("turOfCross");
+
     }
 }
