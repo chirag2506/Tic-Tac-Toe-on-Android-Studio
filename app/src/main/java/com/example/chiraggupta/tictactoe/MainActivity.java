@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void updatePoints(){
         player1TextView.setText("Player 1: " + player1Points);
-        player2TextView.setText("Player 2: " + player2Points);
+        player2TextView.setText(player2Points + " :Player 2");
     }
 
     private void resetBoard(){
